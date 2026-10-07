@@ -1,0 +1,14 @@
+# Visual Studio build output
+[Dd]ebug/
+[Rr]elease/
+x64/
+.vs/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.user
+
+# Local command-line builds and test output
+/build/
+__pycache__/

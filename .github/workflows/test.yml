@@ -1,0 +1,19 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run regression tests
+        run: make test CC=${{ matrix.compiler }}
+      - name: Run with AddressSanitizer and UndefinedBehaviorSanitizer
+        run: make test-sanitize CC=${{ matrix.compiler }}
